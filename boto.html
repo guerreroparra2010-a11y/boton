@@ -2,17 +2,57 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>boton</title>
   <link rel="stylesheet" href="boto.css">
 </head>
 <body>
 
+  <h2>Formulario</h2>
+
+  <p>Edad:</p>
   <input type="text" id="edad" placeholder="Ingresa tu edad">
   <br><br>
+
+  <p>Altura:</p>
   <input type="text" id="altura" placeholder="Ingresa tu altura">
   <br><br>
-  <input type="button" value="boton" id="booton" class="boton" onclick="alert('Tiene la edad: ' + document.getElementById('edad').value + ' y la altura: ' + document.getElementById('altura').value)">
+
+  <!-- Boton con eventos (mouseover y mouseout) -->
+  <button id="booton" class="boton">Enviar (con eventos)</button>
+
+  <br><br>
+
+  <!-- Boton normal con onclick -->
+  <button onclick="mostrarDatos()" class="boton">Ver datos</button>
+
+  <br><br>
+  <p id="resultado"></p>
+
+  <script>
+    // Boton 1 - con addEventListener
+    var boton = document.getElementById("booton");
+
+    boton.addEventListener("click", function() {
+      var edad = document.getElementById("edad").value;
+      var altura = document.getElementById("altura").value;
+      alert("Edad: " + edad + " Altura: " + altura);
+    });
+
+    boton.addEventListener("mouseover", function() {
+      alert("El mouse esta encima del boton");
+    });
+
+    boton.addEventListener("mouseout", function() {
+      alert("El mouse salio del boton");
+    });
+
+    // Boton 2 - normal con onclick
+    function mostrarDatos() {
+      var edad = document.getElementById("edad").value;
+      var altura = document.getElementById("altura").value;
+      alert("Tu edad es: " + edad + " y tu altura es: " + altura);
+    }
+  </script>
 
 </body>
 </html>
